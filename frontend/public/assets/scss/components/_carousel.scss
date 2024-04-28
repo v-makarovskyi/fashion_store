@@ -1,0 +1,21 @@
+@use "../utils" as *;
+
+/* tp swiper slider dot */
+.#{$theme-prefix}-swiper-dot {
+  line-height: 1;
+  .swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    background-color: var(--tp-grey-3);
+    opacity: 1;
+    margin: 0 3px;
+    position: relative;
+    @extend %tp-transition;
+    & button {
+      font-size: 0;
+    }
+    &.swiper-pagination-bullet-active {
+      background-color: var(--tp-theme-primary);
+    }
+  }
+}
