@@ -6,13 +6,6 @@ const menu_data = [
     homes: true,
     title: "Home",
     link: "/",
-    home_pages: [
-      {
-        img: home_2,
-        title: "Fashion",
-        link: "/home-2",
-      },
-    ],
   },
   {
     id: 2,
