@@ -19,3 +19,16 @@
     }
   }
 }
+
+//tp-swiper-scrollbar
+.#{$theme-prefix}-swiper-scrollbar {
+  background-color: #EDEFF2;
+  height: 4px;
+  & .#{$theme-prefix}-swiper-scrollbar-drag {
+    background-color: var(--tp-theme-secondary);
+    height: 100%;
+    &:hover {
+      cursor:grab;
+    }
+  }
+}
