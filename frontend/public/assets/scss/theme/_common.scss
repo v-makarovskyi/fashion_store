@@ -1,0 +1,98 @@
+@use '../utils' as *;
+
+.p-relative {
+    position: relative;
+}
+
+.p-absolute {
+    position: absolute;
+}
+
+.z-index-1 {
+    z-index: 1;
+}
+
+.z-index-11 {
+    z-index: 11;
+}
+
+.fix {
+    overflow: hidden;
+}
+
+.include-bg {
+    @include background;
+}
+
+.#{$theme-prefix}-all-font-roboto {
+    & *:not(i) {
+        @extend %tp-ff-roboto;
+    }
+}
+
+//OVERLAY
+.body-overlay {
+    background-color: var(--tp-common-black);
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    @include tp-transition();
+    overflow-x: hidden;
+    &:hover {
+        cursor: url('../../img/icon/cross-out.png'), pointer;
+    }
+}
+
+.body-overlay.opened {
+    visibility: visible;
+    opacity: .7;
+}
+
+//gutters asis X
+
+.tp-gx-20 {
+    --bs-gutter-x: 20px;
+    @media #{$lg} {
+        --bs-gutter-x: 20px;
+    }
+    @media #{$md} {
+        --bs-gutter-x: 20px;
+    }
+    @media #{$sm} {
+        --bs-gooter-x: 15px;
+    }
+    @media #{$xs} {
+        --tp-gutter-x: 10px;
+    }
+    & [class*="col-"] {
+        padding-left: calc(var(--bs-gooter-x) * .5);
+        padding-right: calc(var(--bs-gooter) * .5);
+        margin-top: var(--bs-gutter-y);
+    }
+}
+
+.tp-gx-40 {
+    --bs-gutter-x: 40px;
+    @media #{$lg} {
+        --bs-gutter-x: 40px;
+    }
+    @media #{$md} {
+        --bs-gutter-x: 30px;
+    }
+    @media #{$sm} {
+        --bs-gutter-x: 30px;
+    }
+    @media #{$xs} {
+        --bs-gutter-x: 15px;
+    }
+    & [class*="col-"] {
+        padding-right: calc(var(--bs-gutter-x) * .5);
+        padding-left: calc(var(--bs-gutter-x) * .5);
+        margin-top: var(--bs-gutter-y);
+    }
+}
