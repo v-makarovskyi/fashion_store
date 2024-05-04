@@ -1,4 +1,5 @@
 @use "typography" as *;
+@use "colors" as *;
 
 :root {
   @each $ff, $shades in $font-family {
@@ -8,8 +9,8 @@
   }
 
   @each $color, $shades in $colors {
-    @each $shade, $value in $shade {
-        --tp-#{$color}-#{$shade}: #{$value};
+    @each $shade, $value in $shades {
+      --tp-#{$color}-#{$shade}: #{$value};
     }
   }
 }
