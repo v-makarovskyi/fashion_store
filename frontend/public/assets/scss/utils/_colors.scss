@@ -5,7 +5,7 @@ $colors: (
     "black": #010f1c,
   ),
   "yellow": (
-    "1": #ffb342,
+    "1": #ffb342, //super
     "2": #ffd43a,
     "3": #ffb21d,
   ),
@@ -14,6 +14,7 @@ $colors: (
     "2": #fd2d6c,
     "3": #ff296a,
     "4": #ff3494,
+    "5": #f60e0e,   //super
   ),
   "green": (
     "dark": #115061,
@@ -53,10 +54,10 @@ $colors: (
     "6": #90969b,
   ),
   "theme": (
-    "primary": #0989ff,
+    "primary": #0989ff,   //super
     "secondary": #821f40,
     "brown": #bd844c,
-    "green": #678e61,
+    "green": #678e61,    //super
   ),
   "footer": (
     "grey-1": #f4f7f9,
@@ -70,6 +71,6 @@ $colors: (
 );
 
 $white : #fff;
-$black : #010F1C;
+$black : #010F1C;             //super
 $theme-primary : #0989FF;
 $border-primary : #EAEBED;
