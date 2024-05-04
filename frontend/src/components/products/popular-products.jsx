@@ -1,3 +1,5 @@
+//scss file path: frontend/public/assets/scss/layout/ecommerce/_category.scss
+
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Scrollbar } from "swiper";
