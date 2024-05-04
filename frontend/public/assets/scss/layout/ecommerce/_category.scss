@@ -1,0 +1,125 @@
+@use "../../utils" as *;
+
+.#{$theme-prefix}-category {
+  $self: &;
+  &-slider {
+    & .#{$theme-prefix}-swiper-scrollbar {
+      width: calc(100% - 200px);
+      margin: auto;
+      position: initial;
+      height: 10px;
+      display: block !important;
+      @media #{$sm} {
+        width: calc(100% - 100px);
+      }
+      @media #{$xs} {
+        width: 100%;
+      }
+    }
+  }
+
+  &-item {
+    &:hover {
+      #{$self} {
+        &-content span,
+        &-content::after,
+        &-btn,
+        &-title {
+          @include transform(translateY(0));
+          visibility: visible;
+          opacity: 1;
+        }
+        &-title {
+          transition-delay: 0.5s;
+        }
+        &-content span {
+          transition-delay: 0.3s;
+        }
+        &-btn {
+          transition-delay: 0.7s;
+        }
+        &-content::after {
+          transition-delay: 0.1s;
+        }
+      }
+    }
+  }
+
+  &-content::after,
+  &-content span,
+  &-btn,
+  &-title {
+    @include transform(translateY(10px));
+    visibility: hidden;
+    opacity: 0;
+    @extend %tp-transition;
+  }
+
+  &-content {
+    position: absolute;
+    top: 10px;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    background-color: transparent;
+    @include flexbox();
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    &::after {
+      position: absolute;
+      content: "";
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: var(--tp-common-white);
+      z-index: -1;
+      @extend %tp-transition;
+      transition-delay: .7s;
+    }
+    & span {
+      font-size: 16px;
+      margin-bottom: 3px;
+      transition-delay: 0.5s;
+      display: inline-block;
+    }
+  }
+
+  &-title {
+    font-weight: 400;
+    font-size: 20px;
+    transition-delay: 0.3s;
+    margin-bottom: 17px;
+    & a {
+      &:hover {
+        color: var(--tp-theme-secondary);
+      }
+    }
+  }
+
+  &-btn {
+    transition-delay: 0s;
+    & .#{$theme-prefix}-btn-border {
+        font-size: 14px;
+        padding: 1px 15px;    
+    }
+  }
+
+  &-thumb {
+    background-color: #f2f3f5;
+    & a {
+      display: block;
+      height: 1px;
+      min-height: 240px;
+      @media #{$xs} {
+        height: auto;
+      }
+      & img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
