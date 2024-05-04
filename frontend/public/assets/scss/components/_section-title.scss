@@ -1,0 +1,25 @@
+@use '../utils' as *;
+
+.#{$theme-prefix}-section {
+    &-title {
+        font-weight: 500;
+        font-size: 44px;
+        @media #{$xs} {
+            font-size: 35px;
+        }
+    }
+    &-title-pre {
+       font-weight: 400;
+       font-size: 18px;
+       color: var(--tp-theme-secondary);
+       position: relative;
+       z-index: 1;
+       display: inline-block; 
+       & svg {
+        position: absolute;
+        bottom: -8px;
+        left: 26px;
+        z-index: -1;
+       }
+    }
+}
