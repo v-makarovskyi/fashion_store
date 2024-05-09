@@ -13,6 +13,7 @@ const useCartInfo = () => {
         const itemTotalSumm = orderQuantity * price;
         cartTotal.total += itemTotalSumm;
         cartTotal.qty += orderQuantity;
+        return cartTotal
       },
       {
         qty: 0,
@@ -22,6 +23,7 @@ const useCartInfo = () => {
     setTotal(cart.total);
     setQty(cart.qty);
   }, [cart_items]);
+
   return {
     qty,
     total,
