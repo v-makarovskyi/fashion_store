@@ -48,8 +48,11 @@ export const cartSlice = createSlice({
     closeCartMini: (state, { payload }) => {
       state.cartMiniOpen = false;
     },
+    getCartProducts: (state, { payload }) => {
+      state.cart_items = getLocalStorage('cart_items')
+    }
   },
 });
 
-export const { addToCart, openCartMini, closeCartMini } = cartSlice.actions;
+export const { addToCart, openCartMini, closeCartMini, getCartProducts } = cartSlice.actions;
 export default cartSlice.reducer;
