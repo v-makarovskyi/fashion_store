@@ -14,6 +14,9 @@
           & img {
             @include animation-name();
           }
+          &-gradient {
+            @include animation-name();
+          }
         }
       }
     }
@@ -91,7 +94,8 @@
       position: absolute;
       top: 14px;
       right: -7px;
-      z-index: -1;
+      z-index: 1;
+      @include animation-control(.7s);
     }
     &-shape {
       &-1 {
@@ -107,6 +111,8 @@
     }
     & img {
       @include animation-control(.3s);
+      z-index: 9;
+      position: relative;
       @media #{$xs} {
         width: 100%;
         height: 100%;
