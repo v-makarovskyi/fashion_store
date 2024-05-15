@@ -1,3 +1,5 @@
+//scss file path frontend/public/assets/scss/layout/ecommerce/_product.scss
+
 import React, { useState } from "react";
 import ErrorMsg from "@/components/common/error-message";
 import { useGetProductTypeQuery } from "@/redux/features/productApi";
@@ -60,7 +62,9 @@ const ProductArea = () => {
                       onClick={() => handleActiveTab(tab)}
                     >
                       {tab}
-                      <span className="tp-product-tab-tooltip">{product_items.length}</span>
+                      <span className="tp-product-tab-tooltip">
+                        {product_items.length}
+                      </span>
                     </button>
                   ))}
                 </div>
