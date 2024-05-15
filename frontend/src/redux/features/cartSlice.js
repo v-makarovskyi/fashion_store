@@ -42,6 +42,15 @@ export const cartSlice = createSlice({
       }
       setLocalStorage("cart_items", state.cart_items);
     },
+    increment: (state, { payload }) => {
+      state.orderQuantity = state.orderQuantity + 1;
+    },
+    decrement: (state, { payload }) => {
+      state.orderQuantity =
+        state.orderQuantity > 1
+          ? state.orderQuantity - 1
+          : (state.orderQuantity = 1);
+    },
     openCartMini: (state, { payload }) => {
       state.cartMiniOpen = true;
     },
@@ -49,13 +58,19 @@ export const cartSlice = createSlice({
       state.cartMiniOpen = false;
     },
     getCartProducts: (state, { payload }) => {
-      state.cart_items = getLocalStorage('cart_items')
+      state.cart_items = getLocalStorage("cart_items");
     },
     initialOrderQuantity: (state) => {
-      state.orderQuantity = 1
+      state.orderQuantity = 1;
     },
   },
 });
 
-export const { addToCart, openCartMini, closeCartMini, getCartProducts, initialOrderQuantity } = cartSlice.actions;
+export const {
+  addToCart,
+  openCartMini,
+  closeCartMini,
+  getCartProducts,
+  initialOrderQuantity,
+} = cartSlice.actions;
 export default cartSlice.reducer;
