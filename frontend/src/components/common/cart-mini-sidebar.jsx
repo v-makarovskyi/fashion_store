@@ -3,34 +3,18 @@ import Image from "next/image";
 import Link from "next/link";
 import { useSelector, useDispatch } from "react-redux";
 import empty_cart_img from "@assets/img/product/cartmini/empty-cart.png";
-import test_img_product from "@assets/img/product/2/prodcut-6.jpg";
 import RenderCartProgress from "./render-cart-progress";
 import { closeCartMini } from "@/redux/features/cartSlice";
+import useCartInfo from "@/hooks/use-cart-info";
 
 const CartMiniSidebar = () => {
-  const { cartMiniOpen } = useSelector((state) => state.cart);
+  const { cartMiniOpen, cart_items } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
+  const { total } = useCartInfo();
+
   const handleCloseCartMini = () => {
     dispatch(closeCartMini());
   };
-  const cart_products = [
-    /*  {
-      _id: 12345645,
-      title: "Patifon",
-      img: test_img_product,
-      discount: 10,
-      price: 897.56,
-      orderQuantity: 6,
-    },
-    {
-      _id: 12345640,
-      title: "Patifon",
-      img: test_img_product,
-      discount: 10,
-      price: 897.56,
-      orderQuantity: 6,
-    }, */
-  ];
 
   return (
     <>
@@ -58,9 +42,9 @@ const CartMiniSidebar = () => {
             <div className="cartmini__shipping">
               <RenderCartProgress />
             </div>
-            {cart_products?.length > 0 && (
+            {cart_items?.length > 0 && (
               <div className="cartmini__widget">
-                {cart_products?.map((item) => (
+                {cart_items?.map((item) => (
                   <div key={item._id} className="cartmini__widget-item">
                     <div className="cartmini__thumb">
                       <Link href={`/product-details/${item._id}`}>
@@ -105,7 +89,7 @@ const CartMiniSidebar = () => {
                 ))}
               </div>
             )}
-            {cart_products.length === 0 && (
+            {cart_items?.length === 0 && (
               <div className="cartmini__empty text-center">
                 <Image src={empty_cart_img} alt="emty-cart" />
                 <p>Your cart is empty</p>
@@ -118,7 +102,7 @@ const CartMiniSidebar = () => {
           <div className="cartmini__checkout">
             <div className="cartmini__checkout-title mb-30">
               <h4>subtotal:</h4>
-              <span>1234</span>
+              <span>{ total }</span>
             </div>
             <div className="cartmini__checkout-btn">
               <Link
