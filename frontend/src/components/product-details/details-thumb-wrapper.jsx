@@ -35,7 +35,6 @@ const DetailsThumbWrapper = ({
               alt="main-image"
               width={imgWidth}
               height={imgHeight}
-              style={{ objectFit: "contain" }}
             />
             <div className="tp-product-badge">
               {status === "out-of-stock" && (
