@@ -1,8 +1,9 @@
 import React from "react";
+import useCartInfo from "@/hooks/use-cart-info";
 
 const RenderCartProgress = () => {
-  const total = 230;
-  const freeShippingThreshold = 200;
+  const { total } = useCartInfo();
+  const freeShippingThreshold = 3500;
   const progress = (total / freeShippingThreshold) * 100;
   if (total < freeShippingThreshold) {
     const remmainingAmount = freeShippingThreshold - total;
