@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
 import backToTop from "@/lib/back-to-top";
 
-const BackToTop = ({ cls }) => {
+const BackToTop = () => {
   useEffect(() => {
     backToTop(".back-to-top-wrapper");
   }, []);
   return (
-    <div className={`back-to-top-wrapper ${cls || ""}`}>
+    <div className={`back-to-top-wrapper`}>
       <button id="back-to-top" type="button" className="back-to-top-btn">
         <svg
           width="12"
