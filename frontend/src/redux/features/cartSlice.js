@@ -68,6 +68,8 @@ export const cartSlice = createSlice({
 
 export const {
   addToCart,
+  increment,
+  decrement,
   openCartMini,
   closeCartMini,
   getCartProducts,
