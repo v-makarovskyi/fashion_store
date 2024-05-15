@@ -29,5 +29,8 @@
             color: var(--tp-common-white);
             border-color: var(--tp-theme-primary);
         }
+        &-sm {
+            padding: 5px 25px;
+        }
     }
 }
