@@ -17,20 +17,16 @@ const customStyles = {
     bottom: "auto",
     marginRight: "-50%",
     transform: "translate(-50%, -50%)",
-    height: "calc(100% - 300px)",
+    height: "calc(100% - 280px)",
   },
 };
 
 const ProductModal = ({ product, isModalOpen }) => {
   const { img, status, imageURLs } = product || {};
   const [activeImage, setActiveImage] = useState(img);
+  console.log(activeImage)
 
   const dispatch = useDispatch();
-
- /*  useEffect(() => {
-    setActiveImage(img);
-    dispatch(initialOrderQuantity());
-  }, [img, dispatch]);  */
 
   const handleActiveImage = (item) => {
     setActiveImage(item.img);
