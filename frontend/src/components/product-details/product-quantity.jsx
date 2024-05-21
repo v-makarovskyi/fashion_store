@@ -20,11 +20,11 @@ const ProductQuantity = () => {
 
   return (
     <div className="tp-product-details-quantity">
-        <div className="tp-product-quantity mr-15 mb-15">
+        <div className="tp-product-quantity text-center mr-15 mb-15">
             <span className="tp-cart-minus" onClick={handleDecrease}>
                 <Minus />
             </span>
-            <input type='text' className="tp-cart-input" readOnly value={orderQuantity} />
+            <span className="tp-cart-input">{orderQuantity}</span>
             <span className="tp-cart-plus" onClick={handleIncrease}>
                 <Plus />
             </span>
