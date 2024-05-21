@@ -9,7 +9,7 @@ const SingleLoader = ({ isLoading }) => {
     )
 }
 
-export const HomePopularProductLoader = ({ isLoading }) => {
+const HomePopularProductLoader = ({ isLoading }) => {
     return (
         <div className="row row-cols-xl-5 row-cols-lg-5 row-cols-md-4">
             <SingleLoader isLoading={isLoading} />
@@ -20,3 +20,5 @@ export const HomePopularProductLoader = ({ isLoading }) => {
         </div>
     )
 }
+
+export default HomePopularProductLoader
