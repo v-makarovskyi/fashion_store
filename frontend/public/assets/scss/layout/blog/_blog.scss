@@ -1,0 +1,88 @@
+@use "../../utils" as *;
+
+.#{$theme-prefix}-blog {
+  $self: &;
+  &-item {
+    &:hover {
+      #{$self} {
+        &-top {
+          & img {
+            @include transform(scale(1.1) rotate(4deg));
+          }
+        }
+      }
+    }
+    &-date {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 1;
+      & span {
+        font-size: 14px;
+        line-height: 1;
+        color: var(--tp-common-black);
+        background: var(--tp-common-white);
+        padding: 5px 15px;
+      }
+    }
+  }
+  &-top {
+    & img {
+      @extend %tp-transition;
+      @media #{$xs, $sm} {
+        width: 100%;
+      }
+    }
+  }
+  &-content {
+    &.has-thumbnail {
+      padding-top: 25px;
+    }
+    #{$self} {
+      &-tags {
+        & span {
+          margin-right: 7px;
+          font-size: 14px;
+          & svg {
+            @extend %tp-svg-y-2;
+          }
+        }
+        & a {
+          margin-right: 5px;
+          font-size: 16px;
+          position: relative;
+          &::after {
+            position: absolute;
+            content: "";
+            bottom: 3px;
+            right: 0;
+            left: auto;
+            width: 0;
+            height: 1px;
+            background-color: var(--tp-theme-secondary);
+            @extend %tp-transition;
+          }
+          &:hover {
+            color: var(--tp-theme-secondary);
+            &::after {
+              width: 100%;
+              right: auto;
+              left: 0;
+            }
+          }
+        }
+      }
+      &-title {
+        padding-top: 15px;
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 1.33;
+        & a {
+          &:hover {
+            color: var(--tp-theme-secondary);
+          }
+        }
+      }
+    }
+  }
+}
