@@ -73,14 +73,14 @@ const DetailsWrapper = ({ product, activeImg, onHandleActiveImage }) => {
       <div className="tp-product-details-price-wrapper mb-20">
         {discount ? (
           <>
-            <span className="tp-product-details old-price">${price}</span>{" "}
-            <span className="tp-product-details new-price">
+            <span className="tp-product-details-price old-price">${price}</span>{" "}
+            <span className="tp-product-details-price new-price">
               {" "}
               ${(Number(price) - (Number(price) * discount) / 100).toFixed(2)}
             </span>
           </>
         ) : (
-          <span className="tp-product-details new-price">
+          <span className="tp-product-details-price new-price">
             ${price.toFixed(2)}
           </span>
         )}
