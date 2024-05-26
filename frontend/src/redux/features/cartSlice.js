@@ -22,15 +22,15 @@ export const cartSlice = createSlice({
         state.cart_items.push(newItem);
         notifySuccess(`${state.orderQuantity} ${payload.title} added to cart!`);
       } else {
-        state.cart_items.map((item) => {
+        cart_items.map((item) => {
           if (item.slug === payload.slug) {
             if (item.quantity >= item.orderQuantity + state.orderQuantity) {
               item.orderQuantity =
                 state.orderQuantity !== 1
-                  ? state.orderQuantity + item.orderQuantity
+                  ? item.orderQuantity + state.orderQuantity
                   : item.orderQuantity + 1;
               notifySuccess(
-                `${state.orderQuantity} ${item.title} added to cart!`
+                `${state.orderQuantity} ${item.title} added to cart`
               );
             } else {
               notifyError("No more quantity available for this product!");
@@ -51,6 +51,16 @@ export const cartSlice = createSlice({
           ? state.orderQuantity - 1
           : (state.orderQuantity = 1);
     },
+    quantityDecrement: (state, { payload }) => {
+      state.cart_items.map((item) => {
+        if (item.slug === payload.slug) {
+          if (item.orderQuantity > 1) {
+            item.orderQuantity = item.orderQuantity - 1;
+          }
+        }
+      });
+      setLocalStorage("cart_items", state.cart_items);
+    },
     openCartMini: (state, { payload }) => {
       state.cartMiniOpen = true;
     },
@@ -63,6 +73,13 @@ export const cartSlice = createSlice({
     initialOrderQuantity: (state) => {
       state.orderQuantity = 1;
     },
+    clearCart: (state) => {
+      const isClearCart = window.confirm('Are you sure you want to remove all items ?')
+      if(isClearCart) {
+        state.cart_items = []
+      }
+      setLocalStorage('cart_items', state.cart_items)
+    }
   },
 });
 
@@ -74,5 +91,7 @@ export const {
   closeCartMini,
   getCartProducts,
   initialOrderQuantity,
+  quantityDecrement,
+  clearCart,
 } = cartSlice.actions;
 export default cartSlice.reducer;
