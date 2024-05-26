@@ -22,7 +22,7 @@ export const cartSlice = createSlice({
         state.cart_items.push(newItem);
         notifySuccess(`${state.orderQuantity} ${payload.title} added to cart!`);
       } else {
-        cart_items.map((item) => {
+        state.cart_items.map((item) => {
           if (item.slug === payload.slug) {
             if (item.quantity >= item.orderQuantity + state.orderQuantity) {
               item.orderQuantity =
@@ -52,7 +52,7 @@ export const cartSlice = createSlice({
           : (state.orderQuantity = 1);
     },
     remove_product: (state, { payload })=> {
-      state.cart_items.filter((item) => {
+      state.cart_items = state.cart_items.filter((item) => {
         item.slug !== payload.slug
       })
       setLocalStorage('cart_items', state.cart_items)
