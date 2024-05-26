@@ -106,4 +106,110 @@
       }
     }
   }
+  &-checkout {
+    &-wrapper {
+      background: var(--tp-common-white);
+      box-shadow: 0 30px 70px rgba($color: $black, $alpha: 0.1);
+      padding: 36px 24px 28px;
+      margin-left: -24px;
+      @media #{$xs, $sm, $md} {
+        margin-top: 50px;
+        margin-left: 0;
+      }
+    }
+    &-top {
+      padding-bottom: 13px;
+      margin-bottom: 19px;
+      border-bottom: 1px solid #e0e2e3;
+      & span {
+        font-weight: 500;
+        font-size: 20px;
+        color: var(--tp-common-black);
+      }
+    }
+    &-shipping {
+      padding-bottom: 16px;
+      margin-bottom: 15px;
+      border-bottom: 1px solid #e0e2e3;
+      &-title {
+        font-weight: 500;
+        font-size: 15px;
+        margin-bottom: 7px;
+      }
+      &-option {
+        &:not(:last-child) {
+          margin-bottom: 4px;
+        }
+        & input {
+          display: none;
+          &:checked {
+            & + label {
+              &::before {
+                opacity: 1;
+                visibility: visible;
+              }
+              &::after {
+                border-color: var(--tp-theme-primary);
+              }
+            }
+          }
+        }
+        & label {
+          font-weight: 400;
+          font-size: 15px;
+          position: relative;
+          color: var(--tp-common-black);
+          padding-left: 25px;
+          & span {
+            color: var(--tp-theme-primary);
+          }
+          &::before {
+            position: absolute;
+            content: "";
+            top: 9px;
+            left: 4px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--tp-theme-primary);
+            opacity: 0;
+            visibility: hidden;
+            @extend %tp-transition;
+          }
+          &::after {
+            position: absolute;
+            content: "";
+            top: 5px;
+            left: 0;
+            border: 1px solid #bcbcbc;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            @extend %tp-transition;
+          }
+        }
+      }
+    }
+    &-total {
+        margin-bottom: 25px;
+        & span {
+            font-size: 20px;
+            font-weight: 500;
+            color: var(--tp-common-black);
+        }
+    }
+    &-btn {
+        display: inline-block;
+        font-size: 16px;
+        font-weight: 500;
+        padding: 10px 30px;
+        background: var(--tp-common-black);
+        color: var(--tp-common-white);
+        text-align: center;
+        &:hover {
+            background: var(--tp-theme-primary);
+            color: var(--tp-common-white);
+        }
+    }
+  }
 }
