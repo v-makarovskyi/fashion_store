@@ -1,3 +1,5 @@
+//scss path file: frontend/public/assets/scss/layout/ecommerce/_cart.scss
+
 import React, { useState } from "react";
 import useCartInfo from "@/hooks/use-cart-info";
 import Link from "next/link";
