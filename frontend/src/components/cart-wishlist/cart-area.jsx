@@ -1,9 +1,12 @@
+//scss path file: frontend/public/assets/scss/layout/ecommerce/_cart.scss
+
 import React from "react";
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
 import RenderCartProgress from "../common/render-cart-progress";
 import CartCheckout from "./cart-checkout";
 import CartItem from "./cart-item";
+import { clearCart } from "@/redux/features/cartSlice";
 
 const CartArea = () => {
   const { cart_items } = useSelector((state) => state.cart);
@@ -36,19 +39,19 @@ const CartArea = () => {
                       <th className="tp-cart-header-quantity">Quantity</th>
                       <th></th>
                     </tr>
-                    <tbody>
-                      {cart_items.map((item, index) => (
-                        <CartItem key={index} product={item} />
-                      ))}
-                    </tbody>
                   </thead>
+                  <tbody>
+                    {cart_items.map((item, index) => (
+                      <CartItem key={item.slug} product={item} />
+                    ))}
+                  </tbody>
                 </table>
               </div>
               <div className="tp-cart-bottom">
                 <div className="row align-items-end justify-content-end">
                   <div className="col-md-4 col-xl-6">
                     <div className="tp-cart-update text-md-end mr-30">
-                      <button type="button" className="tp-cart-update-btn">
+                      <button type="button" className="tp-cart-update-btn" onClick={() => dispatch(clearCart())}>
                         Clear Cart
                       </button>
                     </div>
