@@ -1,0 +1,109 @@
+@use "../../utils" as *;
+
+.#{$theme-prefix}-cart {
+  &-header {
+    &-product {
+      padding-left: 30px !important;
+    }
+  }
+  &-list {
+    @media #{$lg, $md, $sm, $xs} {
+      overflow-x: scroll;
+    }
+    .table > :not(caption) > * > * {
+      padding: 20px 0;
+      box-shadow: none;
+      vertical-align: middle;
+    }
+    & table {
+      @media #{$lg, $md, $sm, $xs} {
+        width: 840px;
+      }
+    }
+    & thead {
+      background-color: #f1f3f4;
+      & th {
+        font-weight: 500;
+        font-size: 14px;
+        color: var(--tp-common-black);
+        border: 0 !important;
+        padding-top: 9px !important;
+        padding-bottom: 9px !important;
+      }
+    }
+    & tr {
+      & td {
+        border-color: #e0e2e3;
+        & .tp-cart-action-btn {
+          font-weight: 400;
+          font-size: 14px;
+          color: #818487;
+          & svg {
+            @extend %tp-svg-y-2;
+            &:hover {
+              color: #ff1826;
+            }
+          }
+        }
+      }
+    }
+    & tbody {
+      & tr {
+        &:first-child {
+          & td {
+            padding-top: 30px !important;
+          }
+        }
+      }
+    }
+  }
+  &-img {
+    width: 78px;
+    margin-right: 20px;
+    & a {
+      background-color: #f2f3f5;
+      display: inline-block;
+      & img {
+        width: 78px;
+        height: 100px;
+        object-fit: cover;
+      }
+    }
+  }
+  &-title {
+    & a {
+      font-weight: 400;
+      font-size: 14px;
+      margin-left: 20px;
+      color: var(--tp-common-black);
+      &:hover {
+        color: var(--tp-theme-primary);
+      }
+    }
+  }
+  &-price {
+    width: 126px;
+    & span {
+      font-size: 16px;
+      color: var(--tp-common-black);
+    }
+  }
+  &-quantity {
+    width: 180px;
+  }
+  &-update {
+    &-btn {
+      font-weight: 500;
+      font-size: 16px;
+      background: var(--tp-common-white);
+      color: var(--tp-common-black);
+      padding: 9px 29px;
+      border: 1px solid rgba($color: $black, $alpha: 0.1);
+      &:hover {
+        background: var(--tp-theme-primary);
+        border-color: var(--tp-theme-primary);
+        color: var(--tp-common-white);
+      }
+    }
+  }
+}
