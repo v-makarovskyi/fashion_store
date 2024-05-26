@@ -1,0 +1,46 @@
+@use "../../utils" as *;
+
+.tp-product-quantity {
+  width: 100px;
+  border-radius: 20px;
+  position: relative;
+}
+
+span[data-name-cart~="cart"] {
+  display: inline-block;
+  text-align: center;
+  font-size: 16px;
+  color: var(--tp-common-black);
+  @extend %tp-transition;
+  position: absolute;
+  top: 50%;
+  left: 16px;
+  @include transform(translateY(-50%));
+  & svg {
+    @include transform(translateY(-2px));
+  }
+  &:hover {
+    cursor: pointer;
+    color: var(--tp-text-1);
+  }
+}
+span[data-name-cart="cart plus"] {
+  left: auto;
+  right: 16px;
+}
+
+input.tp-cart-input[data-name-cart$="qty"] {
+  height: 34px;
+  text-align: center;
+  font-size: 14px;
+  border-radius: 20px;
+  border: 1px solid #dadce0;
+  background-color: var(--tp-common-white);
+  padding: 0 30px;
+  @include rtl {
+    text-align: center;
+  }
+  &:focus {
+    outline: none;
+  }
+}
