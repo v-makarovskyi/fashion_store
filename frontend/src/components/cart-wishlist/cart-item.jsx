@@ -1,3 +1,6 @@
+//scss path file: frontend/public/assets/scss/layout/ecommerce/_quantity.scss
+//scss path file: frontend/public/assets/scss/layout/ecommerce/_cart.scss
+
 import React from "react";
 import { useDispatch } from "react-redux";
 import { Plus, Minus, Close } from "@/svg";
@@ -38,24 +41,25 @@ const CartItem = ({ product }) => {
       <td className="tp-cart-price">
         <span>${(price * orderQuantity).toFixed(2)}</span>
       </td>
-      <td className="tp-cart-quantity">
+      <td className="tp-cart-quantity mt-10 mb-10">
         <div className="tp-product-quantity">
           <span
             className="tp-cart-minus"
-            data-name="cart minus"
+            data-name-cart="cart minus"
             onClick={() => handleDecrementQty(product)}
           >
             <Minus />
           </span>
           <input
+            className="tp-cart-input"
             readOnly
             type="text"
             value={orderQuantity}
-            data-name="order qty"
+            data-name-cart="order qty"
           />
           <span
             className="tp-cart-plus"
-            data-name="cart plus"
+            data-name-cart="cart plus"
             onClick={() => handleAddCartProduct(product)}
           >
             <Plus />
