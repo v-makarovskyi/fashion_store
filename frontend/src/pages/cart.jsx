@@ -1,3 +1,5 @@
+//scss path file: frontend/public/assets/scss/layout/ecommerce/_cart.scss
+
 import React from 'react'
 import SEO from '@/components/seo'
 import Header from '@/layout/headers/header'
@@ -8,7 +10,13 @@ import CommonBreadcrumb from '@/components/cart-wishlist/breadcrumb/common-bread
 
 const Cart = () => {
   return (
-    <div>cart</div>
+    <Wrapper>
+        <SEO pageTitle='cartPage'/>
+        <Header /> 
+        <CommonBreadcrumb title='Shoping Cart' subtitle='Shoping Cart' />
+        <CartArea />
+        <Footer /> 
+    </Wrapper>
   )
 }
 
