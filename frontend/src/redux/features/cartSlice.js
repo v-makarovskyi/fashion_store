@@ -15,12 +15,23 @@ export const cartSlice = createSlice({
     addToCart: (state, { payload }) => {
       const isExist = state.cart_items.some((el) => el.slug === payload.slug);
       if (!isExist) {
-        const newItem = {
-          ...payload,
-          orderQuantity: state.orderQuantity,
-        };
-        state.cart_items.push(newItem);
-        notifySuccess(`${state.orderQuantity} ${payload.title} added to cart!`);
+        let orderQuantity = null;
+        if (payload.quantity >= state.orderQuantity) {
+          orderQuantity = state.orderQuantity;
+          const newItem = {
+            ...payload,
+            orderQuantity,
+          };
+          state.cart_items.push(newItem);
+          notifySuccess(
+            `${state.orderQuantity} ${payload.title} added to cart!`
+          );
+        } else {
+          notifyError(
+            `There are ${payload.quantity} units of this product available!`
+          );
+          state.orderQuantity = 1;
+        }
       } else {
         state.cart_items.map((item) => {
           if (item.slug === payload.slug) {
@@ -51,12 +62,12 @@ export const cartSlice = createSlice({
           ? state.orderQuantity - 1
           : (state.orderQuantity = 1);
     },
-    remove_product: (state, { payload })=> {
+    remove_product: (state, { payload }) => {
       state.cart_items = state.cart_items.filter((item) => {
-        item.slug !== payload.slug
-      })
-      setLocalStorage('cart_items', state.cart_items)
-      notifyError(`${payload.title} remove from Cart!`)
+        item.slug !== payload.slug;
+      });
+      setLocalStorage("cart_items", state.cart_items);
+      notifyError(`${payload.title} remove from Cart!`);
     },
     quantityDecrement: (state, { payload }) => {
       state.cart_items.map((item) => {
@@ -65,6 +76,7 @@ export const cartSlice = createSlice({
             item.orderQuantity = item.orderQuantity - 1;
           }
         }
+        return { ...item };
       });
       setLocalStorage("cart_items", state.cart_items);
     },
@@ -81,12 +93,14 @@ export const cartSlice = createSlice({
       state.orderQuantity = 1;
     },
     clearCart: (state) => {
-      const isClearCart = window.confirm('Are you sure you want to remove all items ?')
-      if(isClearCart) {
-        state.cart_items = []
+      const isClearCart = window.confirm(
+        "Are you sure you want to remove all items ?"
+      );
+      if (isClearCart) {
+        state.cart_items = [];
       }
-      setLocalStorage('cart_items', state.cart_items)
-    }
+      setLocalStorage("cart_items", state.cart_items);
+    },
   },
 });
 
