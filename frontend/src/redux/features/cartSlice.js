@@ -51,6 +51,13 @@ export const cartSlice = createSlice({
           ? state.orderQuantity - 1
           : (state.orderQuantity = 1);
     },
+    remove_product: (state, { payload })=> {
+      state.cart_items.filter((item) => {
+        item.slug !== payload.slug
+      })
+      setLocalStorage('cart_items', state.cart_items)
+      notifyError(`${payload.title} remove from Cart!`)
+    },
     quantityDecrement: (state, { payload }) => {
       state.cart_items.map((item) => {
         if (item.slug === payload.slug) {
@@ -87,6 +94,7 @@ export const {
   addToCart,
   increment,
   decrement,
+  remove_product,
   openCartMini,
   closeCartMini,
   getCartProducts,
