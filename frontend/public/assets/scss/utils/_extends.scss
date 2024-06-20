@@ -1,0 +1,65 @@
+@use './mixins' as *;
+
+//TRANSITION
+%tp-transition-common {
+    @include tp-transition();
+}
+
+%tp-transition {
+    @include tp-transition();
+}
+
+%tp-transition-transform {
+    @include tp-transition(transform)
+}
+
+%tp-transition-color {
+    @include tp-transition(color)
+}
+
+%tp-transition-border-color {
+    @include tp-transition(border-color)
+}
+
+%tp-transition-bg-color {
+    @include tp-transition(background-color)
+}
+
+%tp-transition-fz {
+    @include tp-transition(font-size)
+}
+
+//SVG
+%tp-svg-y-1 {
+    @include transform(translateY(-1px));
+}
+
+%tp-svg-y-2 {
+    @include transform(translateY(-2px));
+}
+
+%tp-svg-y-3 {
+    @include transform(translateY(-3px));
+}
+
+//FONTS
+%tp-ff-roboto {
+    font-family: var(--tp-ff-roboto);
+}
+%tp-ff-jost {
+    font-family: var(--tp-ff-jost);
+}
+
+//TRANSFORM 
+%translateY1_2 {
+    @include transform(translateY(-50%));
+}
+
+//background
+%tp-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
