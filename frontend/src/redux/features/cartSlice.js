@@ -44,7 +44,9 @@ export const cartSlice = createSlice({
                 `${state.orderQuantity} ${item.title} added to cart`
               );
             } else {
-              notifyError("No more quantity available for this product!");
+              notifyError(
+                `There are ${payload.quantity} units of this product available!`
+              );
               state.orderQuantity = 1;
             }
           }
@@ -54,7 +56,20 @@ export const cartSlice = createSlice({
       setLocalStorage("cart_items", state.cart_items);
     },
     increment: (state, { payload }) => {
-      state.orderQuantity = state.orderQuantity + 1;
+      //state.orderQuantity = state.orderQuantity + 1;
+      state.cart_items.length > 0
+        ? state.cart_items.map((item) => {
+            if (item.slug === payload.slug) {
+              if (payload.quantity > state.orderQuantity) {
+                state.orderQuantity = state.orderQuantity + 1;
+              } else {
+                notifyError(
+                  `There are ${payload.quantity} units of this product available!`
+                );
+              }
+            }
+          })
+        : payload.quantity > state.orderQuantity ? state.orderQuantity = state.orderQuantity + 1 : state.orderQuantity
     },
     decrement: (state, { payload }) => {
       state.orderQuantity =
