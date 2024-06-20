@@ -1,96 +1,221 @@
-import home_2 from "@assets/img/menu/menu-home-2.jpg";
+function menu_data() {
+  return {
+    0: {
+      id: 0,
+      title: "root",
+      childMenus: [1, 2, 23, 27, 28, 34],
+    },
+    1: {
+      id: 1,
+      homes: true,
+      title: "Home",
+      link: "/",
+      childMenus: [],
+    },
+    2: {
+      id: 2,
+      products: true,
+      title: "Products",
+      link: "/shop",
+      childMenus: [3, 7, 12, 18],
+    },
+    3: {
+      id: 3,
+      title: "Shop Page",
+      link: "/shop",
+      childMenus: [4, 5, 6],
+    },
+    4: {
+      id: 4,
+      title: "Only Categories",
+      link: "/shop-category",
+      childMenus: [],
+    },
+    5: {
+      id: 5,
+      title: "Shop Grid with Sideber",
+      link: "/shop",
+      childMenus: [],
+    },
+    6: {
+      id: 6,
+      title: "Product Details",
+      link: "/product-details",
+      childMenus: [],
+    },
+    7: {
+      id: 7,
+      title: "Products",
+      link: "/product-details",
+      childMenus: [8, 9, 10, 11],
+    },
+    8: {
+      id: 8,
+      title: "Product Simple",
+      link: "/product-details",
+      childMenus: [],
+    },
+    9: {
+      id: 9,
+      title: "With Video",
+      link: "/product-details-video",
+      childMenus: [],
+    },
+    10: {
+      id: 10,
+      title: "With Countdown Timer",
+      link: "/product-details-countdown",
+      childMenus: [],
+    },
+    11: {
+      id: 11,
+      title: "Variations Swatches",
+      link: "/product-details-swatches",
+      childMenus: [],
+    },
+    12: {
+      id: 12,
+      title: "eCommerce",
+      link: "/shop",
+      childMenus: [13, 14, 15, 16, 17],
+    },
+    13: {
+      id: 13,
+      title: "Shopping Cart",
+      link: "/cart",
+      childMenus: [],
+    },
+    14: {
+      id: 14,
+      title: "Compare",
+      link: "/compare",
+      childMenus: [],
+    },
+    15: {
+      id: 15,
+      title: "WishList",
+      link: "/wishlist",
+      childMenus: [],
+    },
+    16: {
+      id: 16,
+      title: "Checkout",
+      link: "/checkout",
+      childMenus: [],
+    },
+    17: {
+      id: 17,
+      title: "My account",
+      link: "/profile",
+      childMenus: [],
+    },
+    18: {
+      id: 18,
+      title: "More Pages",
+      link: "/shop",
+      childMenus: [19, 20, 21, 22],
+    },
+    19: {
+      id: 19,
+      title: "Login",
+      link: "/login",
+      childMenus: [],
+    },
+    20: {
+      id: 20,
+      title: "Register",
+      link: "/register",
+      childMenus: [],
+    },
+    21: {
+      id: 21,
+      title: "Forgot Password",
+      link: "forgot-password",
+      childMenus: [],
+    },
+    22: {
+      id: 22,
+      title: "404 error",
+      link: "/404",
+      childMenus: [],
+    },
+    23: {
+      id: 23,
+      title: "Shop",
+      sub_menu: true,
+      link: "/shop",
+      childMenus: [24, 25, 26],
+    },
+    24: {
+      id: 24,
+      title: "Shop",
+      link: "/shop",
+      childMenus: [],
+    },
+    25: {
+      id: 25,
+      title: "Right Sidebar",
+      link: "/shop-right-sidebar",
+      childMenus: [],
+    },
+    26: {
+      id: 26,
+      title: "Hidden Sidebar",
+      link: "/shop-hidden-sidebar",
+      childMenus: [],
+    },
+    27: {
+      id: 27,
+      single_link: true,
+      title: "Coupons",
+      link: "/coupon",
+      childMenus: [],
+    },
+    28: {
+      id: 28,
+      sub_menu: true,
+      title: "Blog",
+      link: "/blog",
+      childMenus: [29, 30, 31, 32, 33],
+    },
+    29: {
+      id: 29,
+      title: "Blog Standard",
+      link: "/blog",
+      childMenus: [],
+    },
+    30: {
+      id: 30,
+      title: "Blog Grid",
+      link: "/blog-grid",
+      childMenus: [],
+    },
+    31: {
+      id: 31,
+      title: "Blog List",
+      link: "/blog-list",
+      childMenus: [],
+    },
+    32: {
+      id: 32,
+      title: "Blog Details",
+      link: "/blog-details",
+      childMenus: [],
+    },
+    33: {
+      id: 33,
+      title: "Blog Details Full Width",
+      link: "/blog-details-2",
+      childMenus: [],
+    },
+    34: {
+      id: 34,
+      single_link: true,
+      title: "Contacts",
+      link: "/contact",
+      childMenus: [],
+    },
+  }
+}
 
-const menu_data = [
-  {
-    id: 1,
-    homes: true,
-    title: "Home",
-    link: "/",
-  },
-  {
-    id: 2,
-    products: true,
-    title: "Products",
-    link: "/shop",
-    product_pages: [
-      {
-        title: "Shop Page",
-        link: "/shop",
-        mega_menus: [
-          { title: "Only Categories", link: "/shop-category" },
-          { title: "Shop Grid with Sideber", link: "/shop" },
-          { title: "Product Details", link: "/product-details" },
-        ],
-      },
-      {
-        title: "Products",
-        link: "/product-details",
-        mega_menus: [
-          { title: "Product Simple", link: "/product-details" },
-          { title: "With Video", link: "/product-details-video" },
-          { title: "With Countdown Timer", link: "/product-details-countdown" },
-          { title: "Variations Swatches", link: "/product-details-swatches" },
-        ],
-      },
-      {
-        title: "eCommerce",
-        link: "/shop",
-        mega_menus: [
-          { title: "Shopping Cart", link: "/cart" },
-          { title: "Compare", link: "/compare" },
-          { title: "WishList", link: "/wishlist" },
-          { title: "Checkout", link: "/checkout" },
-          { title: "My account", link: "/profile" },
-        ],
-      },
-      {
-        title: "More Pages",
-        link: "/shop",
-        mega_menus: [
-          { title: "Login", link: "/login" },
-          { title: "Register", link: "/register" },
-          { title: "Forgot Password", link: "forgot-password" },
-          { title: "404 error", link: "/404" },
-        ],
-      },
-    ],
-  },
-  {
-    id: 3,
-    title: "Shop",
-    sub_menu: true,
-    link: "/shop",
-    sub_menus: [
-      { title: "Shop", link: "/shop" },
-      { title: "Right Sidebar", link: "/shop-right-sidebar" },
-      { title: "Hidden Sidebar", link: "/shop-hidden-sidebar" },
-    ],
-  },
-  {
-    id: 4,
-    single_link: true,
-    title: "Coupons",
-    link: "/coupon",
-  },
-  {
-    id: 5,
-    sub_menu: true,
-    title: "Blog",
-    link: "/blog",
-    sub_menus: [
-      { title: "Blog Standard", link: "/blog" },
-      { title: "Blog Grid", link: "/blog-grid" },
-      { title: "Blog List", link: "/blog-list" },
-      { title: "Blog Details", link: "/blog-details" },
-      { title: "Blog Details Full Width", link: "/blog-details-2" },
-    ],
-  },
-  {
-    id: 6,
-    single_link: true,
-    title: "Contacts",
-    link: "/contact",
-  },
-];
-
-export default menu_data
+export default menu_data;
